@@ -1,0 +1,12 @@
+// any change in  parameter the state which is used in other components is also going to be fired the observable
+//this causes  the performance issue
+
+// redux dev tools extension in chrome helps in debugging errors wheather the action is being called or not
+
+ // logOnly environment retricting the visual view of actions in production redux store browser
+    // logOnly: environment.production
+
+    Application will have one main state app state we will inherit the counter state and post state
+
+    important urls :
+    https://programmingwithmosh.com/javascript/what-are-pure-functions/
