@@ -19,7 +19,7 @@ if(state.customValue!=null&&state.customValue!=undefined&&state.customValue!=0){
 }else{
     customincrement=state.counter+1
 }
-
+console.log(state);
       return {
         ...state,
         counter: customincrement,
@@ -34,6 +34,8 @@ if(state.customValue!=null&&state.customValue!=undefined&&state.customValue!=0){
 }else{
   customdecrement=state.counter+1
 }
+console.log(state);
+
       return {
         ...state,
         counter: customdecrement,

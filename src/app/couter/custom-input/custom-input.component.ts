@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { custom } from '../state/counter.action';
 import { State } from '../state/counter.state';
+import { getCounter, getText } from '../state/counter.selector';
+import { AppState } from 'src/app/app.state';
 
 @Component({
   selector: 'app-custom-input',
@@ -12,19 +14,21 @@ export class CustomInputComponent {
   counter:any
   customvalue=0
   text:any
-  constructor(private store:Store<{counter:State}>){
+  constructor(private store:Store<AppState>){
 
   }
   ngOnInit(){
-    this.store.select('counter').subscribe((data)=>{
-      this.counter=data.counter
-      console.log(this.text);
+    console.log(this.store.select(getCounter));
+    
+    this.store.select(getCounter).subscribe((data)=>{
+      this.counter=data
+      
       
     })
-    this.store.select('counter').subscribe((data)=>{
+    this.store.select(getText).subscribe((data)=>{
       console.log("text observable called");
       
-      this.text=data.test
+      this.text=data
       console.log(this.text);
       
     })

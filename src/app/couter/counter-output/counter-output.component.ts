@@ -1,6 +1,10 @@
 import { Component, Input } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { text } from '../state/counter.action';
+import { getCounter, getCustomValue } from '../state/counter.selector';
+import { State } from '../state/counter.state';
+import { AppState } from 'src/app/app.state';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-counter-output',
@@ -11,23 +15,32 @@ export class CounterOutputComponent {
 counter=0
   custom: number | undefined;
   customtext:any
-constructor(private store:Store<{counter:{counter:number},customValue:{customValue:number}}>){
+  counter$: Observable<number> | undefined;
+
+constructor(private store:Store<AppState>){
 
 }
-ngOnInit(){
+ngOnInit():void{
   
-  
-this.store.select('counter')
-console.log(this.store.select('counter'));
+  this.counter$ = this.store.select(getCounter);
+console.log(this.counter$);
 
-  this.store.select('counter').subscribe((data)=>{
+
+
+
+  this.store.select(getCounter).subscribe((data)=>{
     console.log("counter observable called");
+    console.log("hii");
+    console.log(data);
+    console.log(data);
     
-    this.counter=data.counter
+    this.counter=data
+    console.log(this.counter);
+    
   })
   
-  this.store.select('customValue').subscribe((data)=>{
-    this.custom=data.customValue
+  this.store.select(getCustomValue).subscribe((data)=>{
+    this.custom=data
     console.log(this.custom);
     
   })
