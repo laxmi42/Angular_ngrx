@@ -11,7 +11,7 @@ export class CounterButtonsComponent {
 
   counter=0
 
-  constructor(private store:Store<{counter:{counter:number}}>){
+  constructor(private store:Store<{counter:{counter:number},customValue:{customValue:number}}>){
 
   }
   increment(){

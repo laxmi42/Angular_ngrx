@@ -27,7 +27,7 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-   StoreModule.forRoot({counter:counterReducer,customValue:counterReducer})
+   StoreModule.forRoot({counter:counterReducer,customValue:counterReducer,})
     
   ],
   providers: [],

@@ -9,9 +9,25 @@ import { State } from '../state/counter.state';
   styleUrls: ['./custom-input.component.css']
 })
 export class CustomInputComponent {
+  counter:any
   customvalue=0
-  constructor(private store:Store<{customvalue:State}>){
+  text:any
+  constructor(private store:Store<{counter:State}>){
 
+  }
+  ngOnInit(){
+    this.store.select('counter').subscribe((data)=>{
+      this.counter=data.counter
+      console.log(this.text);
+      
+    })
+    this.store.select('counter').subscribe((data)=>{
+      console.log("text observable called");
+      
+      this.text=data.test
+      console.log(this.text);
+      
+    })
   }
   customSubmit(){
     console.log(this.customvalue);
@@ -19,5 +35,6 @@ export class CustomInputComponent {
     
 
   }
+
 
 }
