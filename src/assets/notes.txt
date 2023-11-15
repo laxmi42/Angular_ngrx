@@ -8,5 +8,35 @@
 
     Application will have one main state app state we will inherit the counter state and post state
 
+    ?- Indicates we can assign or not a value it is not mandatory it is optional
+
     important urls :
     https://programmingwithmosh.com/javascript/what-are-pure-functions/
+
+    Selectors are used 
+    to return the state data when called in component to avoid hardcoding in this format ex: store.select("counter")
+    to 
+    without hardcoding 
+    ex :store.select(getCounter)
+
+    Lazy loading:
+    To increase the performance and load less js files on load of home page no need to load other components  using lazy 
+    loading we can avoid loading of other components that are not required at that point.
+
+    lazy loading in Ngrx:
+    Implement lazy loading in Ngrx helps to load state data that is required for that component only ex:
+    For counter component no need to load post state this we can do this using ngrx.
+    if counter component is loaded counter state is goiing to be loaded and when clicked on post component post state is going
+    to be loaded so counter state is already loaded so it is going to display counter and post state data. 
+
+    NGRX Effects:
+    Helps in managing the side effects to keep the  code clean.
+    Side effects means an external APi call  
+    we cannot call http in components & store as we want to keep code clean.
+    we cannot call http in reducer as reducer are pure functions.
+    we cannot inject postservice in reducer as reducer are pure functions.
+    Best way to manage side effects using ngrx effects.
+
+    =>to share  state data globally we need to add in forroot app module,else need to shared state data specific module need to add in feature module
+      //giving shared state name inside brackets indicates its a selector name in appreducer
+

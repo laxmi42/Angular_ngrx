@@ -1,0 +1,15 @@
+<p>editposts works!</p>
+<form [formGroup]="postForm" (ngSubmit)="onEditPost()">
+    <div>
+    <label>Title</label>
+    <input type="text" class="form-control" placeholder="title" formControlName="title"/>
+</div>
+<div>
+    <label>description</label>
+    <textarea type="text" class="form-control" placeholder="description" formControlName="description"></textarea>
+    <!-- {{showDescriptionErrors()}} -->
+</div>
+<div>
+    <button type="submit">Edit Post</button>
+</div>
+</form>

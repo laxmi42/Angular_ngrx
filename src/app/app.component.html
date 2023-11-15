@@ -1,2 +1,8 @@
 <app-header></app-header>
+<div >
+<app-loading-spinner *ngIf="setLoading"></app-loading-spinner>
+</div>
+<div *ngIf="errorMessage">
+    {{errorMessage}}
+</div>
 <router-outlet></router-outlet>

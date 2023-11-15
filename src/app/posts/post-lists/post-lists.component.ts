@@ -3,6 +3,7 @@ import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/app.state';
 import { getPosts } from '../state/post.selector';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { deletePost } from '../state/post.actions';
 
 @Component({
   selector: 'app-post-lists',
@@ -22,6 +23,15 @@ this.store.select(getPosts).subscribe((res)=>{
   
 })
 
+
+}
+onDeletePost(id:any){
+console.log(id);
+
+if(confirm('Are you want to delete')){
+  this.store.dispatch(deletePost({id}))
+}
+  
 }
 
 }
